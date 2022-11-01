@@ -1,19 +1,52 @@
 package Transport;
 
-public class Bus extends Transport {
+public class Bus extends Transport implements Сompeting {
+
+
+//    @Override
+//    public void refill() {
+//        System.out.println("Нужно заправить бензином или дизельным топливом");
+//    }
+
+    public Bus(String brand, String model, double engineVolume) {
+        super(brand, model, engineVolume);
+    }
+
+    @Override
+    public void startMoving() {
+        System.out.println("Сесть в автобус и поехать");
+
+    }
+
+    @Override
+    public void stopMoving() {
+        System.out.println("Остановить автобус и выйти из него");
+
+    }
 
 
     @Override
-    public void refill() {
-        System.out.println("Нужно заправить бензином или дизельным топливом");
+    public String pitStop() {
+        return allPitStop;
     }
 
-    public Bus(String brand, String model, String color, int productionYear, String productionCountry) {
-        super(brand, model, color, productionYear, productionCountry);
+    @Override
+    public double bestLapTime() {
+        return SEE_LAP_TIME;
     }
 
-    public Bus(double maxSpeed) {
-        super(maxSpeed);
+    @Override
+    public int maxSpeed() {
+        return SEE_MAX_SPEED;
     }
+
+    public static final double SEE_LAP_TIME = 60.00;
+    public static final int SEE_MAX_SPEED = 100;
+
+    public static final String allPitStop = "Замена покрышек, Технический осмотр, Заправка топливом";
+
+    //    public Bus(double maxSpeed) {
+//        super(maxSpeed);
+//    }
 
 }
