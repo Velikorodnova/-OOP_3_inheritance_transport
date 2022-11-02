@@ -58,13 +58,15 @@ public class Main {
         System.out.println("KamAZ - " + kamaz.bestLapTime());
         System.out.println("KamAZ - " + kamaz.pitStop());
 
-        CategoryBdriver maks = new CategoryBdriver("", true, 3);
-        CategoryBdriver vlad = new CategoryBdriver("Влад", true, 0);
-        CategoryBdriver oleg = new CategoryBdriver("Олег", true, 2);
+        DriverB maks = new DriverB("Макс", true, 3);
+        DriverC vlad = new DriverC("Влад", true, 0);
+        DriverD oleg = new DriverD("Олег", true, 2);
 
-        System.out.println(maks + " управляет автомобилем (" + chevrolet + ")" + " и будет учавствовать в заезде.");
-        System.out.println(vlad + " управляет автомобилем (" + man + ")" + " и будет учавствовать в заезде.");
-        System.out.println(oleg + " управляет автомобилем (" + bus1 + ")" + " и будет учавствовать в заезде.");
+        maks.driveTransport(chevrolet);
+        vlad.driveTransport(man);
+        oleg.driveTransport(bus1);
+
+
 
 
 

@@ -1,6 +1,6 @@
 package Transport;
 
-public abstract class Driver <Transport> {
+public abstract class Driver<T extends Transport & Сompeting> {
     private String name;
     private boolean driverLicense;
     private int experience;
@@ -33,10 +33,6 @@ public abstract class Driver <Transport> {
     public abstract void stopMoving();
 
     public abstract void refill();
-
-    public void driveTransport() {
-
-    }
 
     public String getName() {
         return name;
@@ -72,11 +68,11 @@ public abstract class Driver <Transport> {
 
     @Override
     public String toString() {
-        return "Водитель - " +
-                name +
+        return "Водитель - " + name +
                 ", водительские права - " + driverLicense +
                 ", стаж - " + experience + ", ";
     }
 
+    public abstract void driveTransport(T transport);
 
 }
