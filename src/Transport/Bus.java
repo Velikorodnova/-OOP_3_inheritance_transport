@@ -45,6 +45,43 @@ public class Bus extends Transport implements Сompeting {
 
     public static final String allPitStop = "Замена покрышек, Технический осмотр, Заправка топливом";
 
+    public enum capacityType {
+        EXTRA_SMALL("Oсобо малая вместимость"), SMALL("Малая вместимость"), MEDIUM("Средняя вместимость"),
+        LARGE("Большая вместимость"), ESPECIALLY_LARGE("Особо большая вместимость");
+
+        public static void determineTheTypeOfCar(String titleCapacityType) {
+            Bus.capacityType tmp = null;
+            for (Bus.capacityType value : values()) {
+                if (value.getTitleCapacityType().equals(titleCapacityType)) {
+                    tmp = value;
+                }
+            }
+            if (tmp != null) {
+                System.out.println(tmp.getTitleCapacityType());
+            } else {
+                System.out.println("Недостаточно данных об авто");
+            }
+        }
+
+        private String titleCapacityType;
+
+        capacityType(String titleCapacityType) {
+            this.titleCapacityType = titleCapacityType;
+        }
+
+        public String getTitleCapacityType() {
+            return titleCapacityType;
+        }
+
+        public void setTitleCapacityType(String titleCapacityType) {
+            this.titleCapacityType = titleCapacityType;
+        }
+
+    }
+
+
+
+
     //    public Bus(double maxSpeed) {
 //        super(maxSpeed);
 //    }

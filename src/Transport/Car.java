@@ -152,6 +152,27 @@ public class Car extends Transport implements Сompeting {
 
     public static final String allPitStop = "Замена покрышек, Технический осмотр, Заправка топливом";
 
+    public enum bodyType {
+        SEDAN("Седан"), HATCHBACK("Хетчбек"), COUPE("Купе"), UNIVERSAL("Универсал"), SUV("Внедорожник"),
+        CROSSOVER("Кроссовер"), PICKUP("Пикап"), MINVEN("Минивен");
+
+        private String titleBodyType;
+
+        bodyType(String titleBodyType) {
+            this.titleBodyType = titleBodyType;
+        }
+
+        public String getTitleBodyType() {
+            return titleBodyType;
+        }
+
+        public void setTitleBodyType(String titleBodyType) {
+            this.titleBodyType = titleBodyType;
+        }
+
+
+
+    }
 
 
 //    public String toString() {

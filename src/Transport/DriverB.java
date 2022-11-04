@@ -26,4 +26,6 @@ public class DriverB extends Driver <Car>{
         System.out.println("Водитель " + getName() + " водит машину " + car.getBrand() + " и может участвовать в заезде.");
     }
 
+
+
 }

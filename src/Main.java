@@ -66,7 +66,8 @@ public class Main {
         vlad.driveTransport(man);
         oleg.driveTransport(bus1);
 
-
+        Truck.loadType.determineTheTypeOfCar("5");
+        Bus.capacityType.determineTheTypeOfCar("Малая вместимость");
 
 
 

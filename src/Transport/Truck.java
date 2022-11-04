@@ -36,13 +36,45 @@ public class Truck extends Transport implements Сompeting {
         return SEE_MAX_SPEED;
     }
 
-//    public static final String TIRE_REPLACEMENT = "Замена покрышек";
+    //    public static final String TIRE_REPLACEMENT = "Замена покрышек";
 //    public static final String TECHNICAL_INSPECTION = "Технический осмотр";
 //    public static final String FUELING = "Заправка топливом";
     public static final double SEE_LAP_TIME = 28.5;
     public static final int SEE_MAX_SPEED = 110;
 
     public static final String allPitStop = "Замена покрышек, Технический осмотр, Заправка топливом";
+
+    public enum loadType {
+        N1("N1"),
+        N2("N2"),
+        N3("N3");
+
+        public static void determineTheTypeOfCar(String titleLoadType) {
+            String tmp = "Недостаточно данных об авто";
+            for (loadType value : values()) {
+                if (value.getTitleLoadType().equals(titleLoadType)) {
+                    tmp = value.getTitleLoadType();
+                }
+            }
+            System.out.println(tmp);
+        }
+
+
+        private String titleLoadType;
+
+        loadType(String titleLoadType) {
+            this.titleLoadType = titleLoadType;
+        }
+
+        public String getTitleLoadType() {
+            return titleLoadType;
+        }
+
+        public void setTitleLoadType(String titleLoadType) {
+            this.titleLoadType = titleLoadType;
+        }
+
+    }
 
 
 //    public void doPitStop(String pitStop) {
