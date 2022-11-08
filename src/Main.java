@@ -20,7 +20,8 @@ public class Main {
         Car porsche = new Car("Porsche", "911 GT3", 3.9);
         System.out.println(porsche);
         porsche.startMoving();
-        porsche.stopMoving();
+
+
         Truck kamaz = new Truck("КамАЗ", "АЗ-4326-9", 13);
         System.out.println(kamaz);
         kamaz.startMoving();
@@ -37,6 +38,7 @@ public class Main {
         System.out.println(skania);
         skania.startMoving();
         skania.stopMoving();
+
         Bus bus1 = new Bus("BUS", "1", 20.00);
         System.out.println(bus1);
         bus1.startMoving();
@@ -58,9 +60,9 @@ public class Main {
         System.out.println("KamAZ - " + kamaz.bestLapTime());
         System.out.println("KamAZ - " + kamaz.pitStop());
 
-        DriverB maks = new DriverB("Макс", true, 3);
-        DriverC vlad = new DriverC("Влад", true, 0);
-        DriverD oleg = new DriverD("Олег", true, 2);
+        DriverB maks = new DriverB("Макс", true, 3, "B");
+        DriverC vlad = new DriverC("Влад", true, 0, "C");
+        DriverD oleg = new DriverD("Олег", true, 2, "D");
 
         maks.driveTransport(chevrolet);
         vlad.driveTransport(man);
@@ -69,11 +71,7 @@ public class Main {
         Truck.loadType.determineTheTypeOfCar("5");
         Bus.capacityType.determineTheTypeOfCar("Малая вместимость");
 
-
-
-
-
-
+        diagnosed(ferrari, chevrolet, bmw, porsche, kamaz, daf, man, skania, bus1, bus2, bus3, bus4);
 
 
 //        Car lada = new Car("Lada", "Granta", "Синий", 2015, "Россия", 1.7, "Механическая", "Хечбек", "B222AK777", 5, true);
@@ -104,6 +102,22 @@ public class Main {
 
     }
 
+    private static void diagnosed(Transport... transports) {
+        for (Transport transport : transports) {
+            diagnosedTransport(transport);
+        }
+    }
+
+    private static void diagnosedTransport(Transport transport) {
+        try {
+            if (!transport.getDiagnosed()) {
+                throw new RuntimeException("Автомобиль " + transport.getBrand() + transport.getModel() + " не прошел диагностику");
+            }
+
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
 }
 

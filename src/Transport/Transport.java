@@ -142,6 +142,8 @@ public abstract class Transport {
         return Objects.hash(brand, model, engineVolume);
     }
 
+    public abstract boolean getDiagnosed();
+
 
 
 

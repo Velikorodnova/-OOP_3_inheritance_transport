@@ -76,8 +76,12 @@ public class Truck extends Transport implements Сompeting {
 
     }
 
+    @Override
+    public boolean getDiagnosed() {
+        return Math.random() > 0.7;
+    }
 
-//    public void doPitStop(String pitStop) {
+    //    public void doPitStop(String pitStop) {
 //        switch (pitStop) {
 //            case TIRE_REPLACEMENT:
 //                System.out.println("Снять старые покрышки");

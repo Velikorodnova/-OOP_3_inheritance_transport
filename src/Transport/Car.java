@@ -170,11 +170,12 @@ public class Car extends Transport implements Сompeting {
             this.titleBodyType = titleBodyType;
         }
 
-
-
     }
 
-
+    @Override
+    public boolean getDiagnosed() {
+        return Math.random() > 0.6;
+    }
 //    public String toString() {
 //        return super.toString() +
 //

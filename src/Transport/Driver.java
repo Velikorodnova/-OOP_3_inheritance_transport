@@ -5,14 +5,19 @@ public abstract class Driver<T extends Transport & Сompeting> {
     private boolean driverLicense;
     private int experience;
 
+    private String category;
+
+
     public Driver(String name) {
         this.name = name;
     }
 
-    public Driver(String name, boolean driverLicense, int experience) {
+    public Driver(String name, boolean driverLicense, int experience, String category) {
         this.name = name;
         this.driverLicense = driverLicense;
         this.experience = experience;
+        setCategory(category);
+
 
         if (experience == 0 || experience <= 2) {
             this.experience = 3;
@@ -64,6 +69,17 @@ public abstract class Driver<T extends Transport & Сompeting> {
         } else {
             this.experience = experience;
         }
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        if (category == null) {
+            throw new IllegalArgumentException("Необходимо указать тип прав!");
+        }
+        this.category = category;
     }
 
     @Override

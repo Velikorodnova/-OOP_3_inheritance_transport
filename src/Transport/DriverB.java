@@ -1,8 +1,8 @@
 package Transport;
 public class DriverB extends Driver <Car>{
 
-    public DriverB(String name, boolean driverLicense, int experience) {
-        super(name, driverLicense, experience);
+    public DriverB(String name, boolean driverLicense, int experience, String category) {
+        super(name, driverLicense, experience, category);
     }
 
     @Override
