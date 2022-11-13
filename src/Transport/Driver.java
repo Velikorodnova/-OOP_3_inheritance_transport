@@ -12,6 +12,10 @@ public abstract class Driver<T extends Transport & Сompeting> {
         this.name = name;
     }
 
+    public boolean isDriverLicense() {
+        return driverLicense;
+    }
+
     public Driver(String name, boolean driverLicense, int experience, String category) {
         this.name = name;
         this.driverLicense = driverLicense;

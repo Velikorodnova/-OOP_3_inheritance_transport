@@ -1,11 +1,16 @@
 package Transport;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 public abstract class Transport {
     private String brand;
     private String model;
     private double engineVolume;
+
+    private final ArrayList<Driver<?>> drivers = new ArrayList<>();
+    private final ArrayList<Sponsor> sponsors = new ArrayList<>();
+    private final ArrayList<Mechanic<?>> mechanics = new ArrayList<>();
 //    private String color;
 //    private int productionYear;
 //    private String productionCountry;
@@ -63,13 +68,24 @@ public abstract class Transport {
 //        }
 
 
-//    public double getMaxSpeed() {
+    //    public double getMaxSpeed() {
 //        return maxSpeed;
 //    }
 //
 //    public void setMaxSpeed(double maxSpeed) {
 //        this.maxSpeed = maxSpeed;
 //    }
+    public void addDriver(Driver<?> driver) {
+        drivers.add(driver);
+    }
+
+    public void addSponsor(Sponsor sponsor) {
+        sponsors.add(sponsor);
+    }
+
+    public void addMechanic(Mechanic<?> mechanic) {
+        mechanics.add(mechanic);
+    }
 
     public String getBrand() {
         return brand;
@@ -125,6 +141,7 @@ public abstract class Transport {
     }
 
     public abstract void startMoving();
+
     public abstract void stopMoving();
 
     @Override
@@ -144,8 +161,19 @@ public abstract class Transport {
 
     public abstract boolean getDiagnosed();
 
+    public abstract void fixTheCar();
 
+    public ArrayList<Driver<?>> getDrivers() {
+        return drivers;
+    }
 
+    public ArrayList<Sponsor> getSponsors() {
+        return sponsors;
+    }
+
+    public ArrayList<Mechanic<?>> getMechanics() {
+        return mechanics;
+    }
 
     //    public abstract void refill();
 }

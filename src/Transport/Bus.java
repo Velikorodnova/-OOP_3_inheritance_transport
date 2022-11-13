@@ -85,6 +85,11 @@ public class Bus extends Transport implements Сompeting {
         return true;
     }
 
+    @Override
+    public void fixTheCar() {
+        System.out.println(getBrand() + " " + getModel() + " починена");
+    }
+
     //    public Bus(double maxSpeed) {
 //        super(maxSpeed);
 //    }

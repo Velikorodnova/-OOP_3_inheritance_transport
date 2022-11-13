@@ -1,6 +1,7 @@
 package Transport;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class Car extends Transport implements Сompeting {
 
@@ -175,6 +176,11 @@ public class Car extends Transport implements Сompeting {
     @Override
     public boolean getDiagnosed() {
         return Math.random() > 0.6;
+    }
+
+    @Override
+    public void fixTheCar() {
+       System.out.println(getBrand() + " " + getModel() + " починена");
     }
 //    public String toString() {
 //        return super.toString() +

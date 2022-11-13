@@ -81,6 +81,11 @@ public class Truck extends Transport implements Сompeting {
         return Math.random() > 0.7;
     }
 
+    @Override
+    public void fixTheCar() {
+        System.out.println(getBrand() + " " + getModel() + " починена");
+    }
+
     //    public void doPitStop(String pitStop) {
 //        switch (pitStop) {
 //            case TIRE_REPLACEMENT:

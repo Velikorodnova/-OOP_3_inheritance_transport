@@ -1,4 +1,7 @@
 import Transport.*;
+
+import java.util.ArrayList;
+import java.util.List;
 //import Transport.Train;
 
 
@@ -6,55 +9,55 @@ public class Main {
     public static void main(String[] args) {
 
         Car ferrari = new Car("Ferrari", "812", 6.5);
-        System.out.println(ferrari);
-        ferrari.startMoving();
-        ferrari.stopMoving();
-        Car chevrolet = new Car("Chevrolet", "Camaro", 3.6);
-        System.out.println(chevrolet);
-        chevrolet.startMoving();
-        chevrolet.stopMoving();
-        Car bmw = new Car("BMW", "M4 GT4", 3.00);
-        System.out.println(bmw);
-        bmw.startMoving();
-        bmw.stopMoving();
-        Car porsche = new Car("Porsche", "911 GT3", 3.9);
-        System.out.println(porsche);
-        porsche.startMoving();
+//        System.out.println(ferrari);
+//        ferrari.startMoving();
+//        ferrari.stopMoving();
+//        Car chevrolet = new Car("Chevrolet", "Camaro", 3.6);
+//        System.out.println(chevrolet);
+//        chevrolet.startMoving();
+//        chevrolet.stopMoving();
+//        Car bmw = new Car("BMW", "M4 GT4", 3.00);
+//        System.out.println(bmw);
+//        bmw.startMoving();
+//        bmw.stopMoving();
+//        Car porsche = new Car("Porsche", "911 GT3", 3.9);
+//        System.out.println(porsche);
+//        porsche.startMoving();
 
 
         Truck kamaz = new Truck("КамАЗ", "АЗ-4326-9", 13);
-        System.out.println(kamaz);
-        kamaz.startMoving();
-        kamaz.stopMoving();
-        Truck daf = new Truck("DAF", "3300", 11.6);
-        System.out.println(daf);
-        daf.startMoving();
-        daf.stopMoving();
-        Truck man = new Truck("MAN", "TGX", 15.2);
-        System.out.println(man);
-        man.startMoving();
-        man.stopMoving();
-        Truck skania = new Truck("Skania", "5", 15.00);
-        System.out.println(skania);
-        skania.startMoving();
-        skania.stopMoving();
+//        System.out.println(kamaz);
+//        kamaz.startMoving();
+//        kamaz.stopMoving();
+//        Truck daf = new Truck("DAF", "3300", 11.6);
+//        System.out.println(daf);
+//        daf.startMoving();
+//        daf.stopMoving();
+//        Truck man = new Truck("MAN", "TGX", 15.2);
+//        System.out.println(man);
+//        man.startMoving();
+//        man.stopMoving();
+//        Truck skania = new Truck("Skania", "5", 15.00);
+//        System.out.println(skania);
+//        skania.startMoving();
+//        skania.stopMoving();
 
         Bus bus1 = new Bus("BUS", "1", 20.00);
-        System.out.println(bus1);
-        bus1.startMoving();
-        bus1.stopMoving();
-        Bus bus2 = new Bus("BUS", "2", 19.00);
-        System.out.println(bus2);
-        bus2.startMoving();
-        bus2.stopMoving();
-        Bus bus3 = new Bus("BUS", "3", 18.00);
-        System.out.println(bus3);
-        bus3.startMoving();
-        bus3.stopMoving();
-        Bus bus4 = new Bus("BUS", "4", 17.00);
-        System.out.println(bus4);
-        bus4.startMoving();
-        bus4.stopMoving();
+//        System.out.println(bus1);
+//        bus1.startMoving();
+//        bus1.stopMoving();
+//        Bus bus2 = new Bus("BUS", "2", 19.00);
+//        System.out.println(bus2);
+//        bus2.startMoving();
+//        bus2.stopMoving();
+//        Bus bus3 = new Bus("BUS", "3", 18.00);
+//        System.out.println(bus3);
+//        bus3.startMoving();
+//        bus3.stopMoving();
+//        Bus bus4 = new Bus("BUS", "4", 17.00);
+//        System.out.println(bus4);
+//        bus4.startMoving();
+//        bus4.stopMoving();
 
 
         System.out.println("KamAZ - " + kamaz.bestLapTime());
@@ -64,15 +67,72 @@ public class Main {
         DriverC vlad = new DriverC("Влад", true, 0, "C");
         DriverD oleg = new DriverD("Олег", true, 2, "D");
 
-        maks.driveTransport(chevrolet);
-        vlad.driveTransport(man);
+        maks.driveTransport(ferrari);
+        vlad.driveTransport(kamaz);
         oleg.driveTransport(bus1);
 
         Truck.loadType.determineTheTypeOfCar("5");
         Bus.capacityType.determineTheTypeOfCar("Малая вместимость");
 
-        diagnosed(ferrari, chevrolet, bmw, porsche, kamaz, daf, man, skania, bus1, bus2, bus3, bus4);
+        diagnosed(ferrari, kamaz, bus1);
 
+        Mechanic<Transport> andrei = new Mechanic<Transport>("Андрей", "АБС");
+        Sponsor vladimir = new Sponsor("Владимир", 5000);
+
+        Car car = new Car("Ferrari", "812", 6.5);
+        car.addDriver(new DriverB("Макс", true, 3, "B"));
+        car.addMechanic(andrei);
+        car.addSponsor(vladimir);
+
+        Truck truck = new Truck("КамАЗ", "АЗ-4326-9", 13);
+        truck.addDriver(new DriverC("Влад", true, 0, "C"));
+        truck.addMechanic(andrei);
+        truck.addSponsor(vladimir);
+
+        List<Transport> transports = List.of(ferrari, bus1, kamaz);
+
+        for (Transport transport : transports) {
+            carInformation(transport);
+        }
+
+        ServiceStation<Transport> romashka = new ServiceStation<Transport>("Ромашка");
+
+
+        for (Transport aa : transports) {
+            System.out.println(aa);
+        }
+        romashka.addAvto(ferrari);
+        romashka.addAvto(kamaz);
+        romashka.dequeue();
+
+
+    }
+
+    public static void carInformation(Transport transport) {
+        System.out.println("Информация по авто: " + transport.getBrand() + " " + transport.getModel());
+        System.out.println("Информация по водителю: " + transport.getDrivers());
+        System.out.println("Спонсоры: " + transport.getSponsors());
+        System.out.println("Механики: " + transport.getMechanics());
+
+    }
+
+    private static void diagnosed(Transport... transports) {
+        for (Transport transport : transports) {
+            diagnosedTransport(transport);
+        }
+    }
+
+    private static void diagnosedTransport(Transport transport) {
+        try {
+            if (!transport.getDiagnosed()) {
+                throw new RuntimeException("Автомобиль " + transport.getBrand() + " " + transport.getModel() + " не прошел диагностику");
+            }
+
+        } catch (RuntimeException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
 
 //        Car lada = new Car("Lada", "Granta", "Синий", 2015, "Россия", 1.7, "Механическая", "Хечбек", "B222AK777", 5, true);
 //        System.out.println(lada);
@@ -99,25 +159,4 @@ public class Main {
 //        lastochka.refill();
 //        hyundai.refill();
 //        paz.refill();
-
-    }
-
-    private static void diagnosed(Transport... transports) {
-        for (Transport transport : transports) {
-            diagnosedTransport(transport);
-        }
-    }
-
-    private static void diagnosedTransport(Transport transport) {
-        try {
-            if (!transport.getDiagnosed()) {
-                throw new RuntimeException("Автомобиль " + transport.getBrand() + transport.getModel() + " не прошел диагностику");
-            }
-
-        } catch (RuntimeException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
-}
 
