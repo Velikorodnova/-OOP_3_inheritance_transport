@@ -1,5 +1,7 @@
 package Transport;
 
+import java.util.Objects;
+
 public abstract class Driver<T extends Transport & Сompeting> {
     private String name;
     private boolean driverLicense;
@@ -84,6 +86,21 @@ public abstract class Driver<T extends Transport & Сompeting> {
             throw new IllegalArgumentException("Необходимо указать тип прав!");
         }
         this.category = category;
+    }
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver<?> driver = (Driver<?>) o;
+        return driverLicense == driver.driverLicense && experience == driver.experience && Objects.equals(name, driver.name) && Objects.equals(category, driver.category);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, driverLicense, experience, category);
     }
 
     @Override

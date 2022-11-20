@@ -1,16 +1,18 @@
 package Transport;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public abstract class Transport {
     private String brand;
     private String model;
     private double engineVolume;
 
-    private final ArrayList<Driver<?>> drivers = new ArrayList<>();
-    private final ArrayList<Sponsor> sponsors = new ArrayList<>();
-    private final ArrayList<Mechanic<?>> mechanics = new ArrayList<>();
+    private final Set<Driver<?>> drivers = new HashSet<>();
+    private final Set<Sponsor> sponsors = new HashSet<>();
+    private final Set<Mechanic<?>> mechanics = new HashSet<>();
 //    private String color;
 //    private int productionYear;
 //    private String productionCountry;
@@ -163,16 +165,40 @@ public abstract class Transport {
 
     public abstract void fixTheCar();
 
-    public ArrayList<Driver<?>> getDrivers() {
+    public Set<Driver<?>> getDrivers() {
         return drivers;
     }
 
-    public ArrayList<Sponsor> getSponsors() {
+    public Set<Sponsor> getSponsors() {
         return sponsors;
     }
 
-    public ArrayList<Mechanic<?>> getMechanics() {
+    public Set<Mechanic<?>> getMechanics() {
         return mechanics;
+    }
+
+    public void checkAddSponsor (Sponsor sponsor){
+        if (sponsors.contains(sponsor)){
+            throw new IllegalArgumentException("Такой спонсор уже существует");
+        } else {
+            sponsors.add(sponsor);
+        }
+    }
+
+    public void checkAddMechanics (Mechanic mechanic){
+        if (mechanics.contains(mechanic)){
+            throw new IllegalArgumentException("Такой спонсор уже существует");
+        } else {
+            mechanics.add(mechanic);
+        }
+    }
+
+    public void checkAddDrivers (Driver driver){
+        if (drivers.contains(driver)){
+            throw new IllegalArgumentException("Такой спонсор уже существует");
+        } else {
+            drivers.add(driver);
+        }
     }
 
     //    public abstract void refill();
