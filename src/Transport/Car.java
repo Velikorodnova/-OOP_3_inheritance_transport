@@ -124,13 +124,11 @@ public class Car extends Transport implements Сompeting {
     @Override
     public void startMoving() {
         System.out.println("Сесть в машину и поехать");
-
     }
 
     @Override
     public void stopMoving() {
         System.out.println("Остановить машину и выйти из нее");
-
     }
 
     @Override
